@@ -1,20 +1,13 @@
-import {
-  List,
-  ListItem,
-  ListItemDecorator,
-  ListItemButton,
-  Home,
-  Apps
-} from "../index";
-import "./style.css";
+import { Apps, Home, List, ListItem, ListItemButton, ListItemDecorator } from '../index'
+import './style.css'
 
-export function Aside() {
+export function Aside () {
   return (
     <div className="aside">
-      <List    
+      <List
          sx = {{
-          maxWidth: 320
-        }}   
+           maxWidth: 320
+         }}
       >
         <ListItem>
           <ListItemButton selected>
@@ -40,5 +33,5 @@ export function Aside() {
         </ListItem>
       </List>
     </div>
-  );
+  )
 }
