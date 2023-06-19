@@ -11,17 +11,17 @@ import "./style.css";
 export function Aside() {
   return (
     <div className="aside">
-      <List
-        sx={{
+      <List    
+         sx = {{
           maxWidth: 320
-        }}
+        }}   
       >
         <ListItem>
           <ListItemButton selected>
             <ListItemDecorator>
               <Home />
             </ListItemDecorator>
-            Home
+             Home
           </ListItemButton>
         </ListItem>
         <ListItem>
