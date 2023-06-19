@@ -1,35 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AuthContext from "../src/context/Context";
+import { LayoutDefault } from "./component/Layout/LayoutDefault";
+import Main from "./page/Main";
+import "./App.css";
+import LogIn from "./component/LogIn/LogIn";
+import { LayoutAuth } from "./component/Layout/LautAuth";
+import { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [auth, setAuth] = useState(AuthContext);
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <AuthContext.Provider value={{ auth, setAuth }}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/main" element={<LayoutDefault children={Main} />} />
+          {auth ? (
+            <Route path="/LOGIN" element={<LayoutAuth children={LogIn} />} />
+          ) : (
+            <Route path="/LOGIN" element={<LayoutDefault children={LogIn} />} />
+          )}
+        </Routes>
+      </BrowserRouter>
+    </AuthContext.Provider>
+  );
 }
 
-export default App
+export default App;
