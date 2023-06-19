@@ -1,5 +1,9 @@
-import React from 'react';
+import { createContext } from 'react'
+import type { Dispatch, SetStateAction } from 'react'
 
-const AuthContext = React.createContext(false);
+interface IAuthContext {
+  auth: boolean
+  setAuth: Dispatch<SetStateAction<boolean>>
+}
 
-export default AuthContext;
+export default createContext<IAuthContext>({ auth: false, setAuth: () => null })

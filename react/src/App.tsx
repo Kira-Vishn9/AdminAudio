@@ -8,7 +8,9 @@ import { LayoutAuth } from "./component/Layout/LautAuth";
 import { useState } from "react";
 
 function App() {
-  const [auth, setAuth] = useState(AuthContext);
+    // auth - епременная, setAuth - () => void
+  const [auth, setAuth] = useState(false);
+
   return (
     <AuthContext.Provider value={{ auth, setAuth }}>
       <BrowserRouter>
