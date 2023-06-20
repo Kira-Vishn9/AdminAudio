@@ -15,7 +15,17 @@ function App (): JSX.Element {
     <ContextAuth.Provider value={{ auth, setAuth }}>
       <BrowserRouter>
         <Routes>
-          <Route path="/main" element={<LayoutDefault><Main /></LayoutDefault>}></Route>
+          <RootLayout>
+
+          </RootLayout>
+          {!auth
+            ? (
+              <Route path="/main" element={<LayoutAuth><Main /></LayoutAuth>}></Route>
+              )
+            : (
+              <Route path="/main" element={<LayoutDefault><Main /></LayoutDefault>}></Route>
+              )}
+
           {!auth
             ? (
               <Route path="/signin" element={<LayoutAuth><LogIn /></LayoutAuth> } />
