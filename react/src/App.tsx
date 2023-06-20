@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { ContextAuth } from '../src/context/Context'
 import { LayoutDefault } from './component/Layout/LayoutDefault'
+import { RootLayout } from './component/Layout/RootLayout'
 import Main from './page/Main'
 import './App.css'
 import LogIn from './component/LogIn/LogIn'
@@ -14,26 +15,27 @@ function App (): JSX.Element {
   return (
     <ContextAuth.Provider value={{ auth, setAuth }}>
       <BrowserRouter>
+        <RootLayout>
         <Routes>
-          <RootLayout>
+            <Route path="/main" element={<Main />} />
+            <Route path="/signin" element={<LogIn /> } />
+          {/* {!auth */}
+          {/*   ? ( */}
+          {/*     <Route path="/main" element={<Main />}></Route> */}
+          {/*     ) */}
+          {/*   : ( */}
+          {/*     <Route path="/main" element={<LayoutDefault><Main /></LayoutDefault>}></Route> */}
+          {/*     )} */}
 
-          </RootLayout>
-          {!auth
-            ? (
-              <Route path="/main" element={<LayoutAuth><Main /></LayoutAuth>}></Route>
-              )
-            : (
-              <Route path="/main" element={<LayoutDefault><Main /></LayoutDefault>}></Route>
-              )}
-
-          {!auth
-            ? (
-              <Route path="/signin" element={<LayoutAuth><LogIn /></LayoutAuth> } />
-              )
-            : (
-            <Route path="/signin" element={<LayoutDefault><LogIn /></LayoutDefault>} />
-              )}
+          {/* {!auth */}
+          {/*   ? ( */}
+          {/*     <Route path="/signin" element={<LayoutAuth><LogIn /></LayoutAuth> } /> */}
+          {/*     ) */}
+          {/*   : ( */}
+          {/*   <Route path="/signin" element={<LayoutDefault><LogIn /></LayoutDefault>} /> */}
+          {/*     )} */}
         </Routes>
+        </RootLayout>
       </BrowserRouter>
     </ContextAuth.Provider>
   )

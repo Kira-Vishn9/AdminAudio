@@ -1,3 +1,3 @@
 export interface Ichild {
-  children: JSX.Element
+  children: JSX.Element | JSX.Element[]
 }
