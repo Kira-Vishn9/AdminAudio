@@ -1,4 +1,4 @@
-import Button from '@mui/material-next/Button'
+import { Button } from '@mui/material'
 import List from '@mui/joy/List'
 import ListItem from '@mui/joy/ListItem'
 import ListItemDecorator from '@mui/joy/ListItemDecorator'

@@ -16,7 +16,7 @@ function App (): JSX.Element {
       <BrowserRouter>
         <Routes>
           <Route path="/main" element={<LayoutDefault><Main /></LayoutDefault>}></Route>
-          {auth
+          {!auth
             ? (
               <Route path="/signin" element={<LayoutAuth><LogIn /></LayoutAuth> } />
               )

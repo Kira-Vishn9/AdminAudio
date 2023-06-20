@@ -1,16 +1,17 @@
 import React from 'react'
-import { Button, Input } from '../index'
-// import { ContextAuth } from '../../context/Context'
+import { Button, Input } from '@components/index'
+import { ContextAuth } from '../../context/Context'
 import './style.css'
+import { Link } from 'react-router-dom'
 
 function LogIn (): JSX.Element {
-  // const { auth, setAuth } = React.useContext(ContextAuth)
+  const { auth, setAuth } = React.useContext(ContextAuth)
   const [mail, setMail] = React.useState(false)
   const [password, setPassword] = React.useState(false)
-  // need help!!!
-  // const checkin = (): void => {
-  //   console.log('hi')
-  // }
+
+  const checkin = (): void => {
+    mail && password ? setAuth(true) : alert('try again')
+  }
 
   const validationMail = (e: React.ChangeEvent<HTMLInputElement>): undefined | boolean => {
     const check = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -33,13 +34,6 @@ function LogIn (): JSX.Element {
       <div>
         <h3>Create your account</h3>
       </div>
-      <Button
-        color="primary"
-        size="medium"
-        variant="outlined"
-      >
-        Enter
-      </Button>
       <Input
         style={{ marginTop: '10px', marginBottom: '10px' }}
         placeholder="Enter your mail or login"
@@ -52,6 +46,20 @@ function LogIn (): JSX.Element {
         error={!password}
         onChange={validationPassword}
       />
+      {auth
+        ? <Link to={'/main'} >
+        <Button
+          onClick={checkin}
+        >
+          Enter
+        </Button>
+        </Link>
+        : <Button
+        onClick={checkin}
+      >
+        Enter
+      </Button>}
+
     </div>
   )
 }

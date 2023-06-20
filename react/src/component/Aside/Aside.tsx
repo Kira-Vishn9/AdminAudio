@@ -1,7 +1,8 @@
-import { Apps, Home, List, ListItem, ListItemButton, ListItemDecorator } from '../index'
+import React from 'react'
+import { Apps, Home, List, ListItem, ListItemButton, ListItemDecorator } from '@components/index'
 import './style.css'
 
-export function Aside () {
+export function Aside (): JSX.Element {
   return (
     <div className="aside">
       <List
