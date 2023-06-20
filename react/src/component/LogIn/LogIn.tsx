@@ -46,19 +46,14 @@ function LogIn (): JSX.Element {
         error={!password}
         onChange={validationPassword}
       />
-      {auth
-        ? <Link to={'/main'} >
-        <Button
-          onClick={checkin}
-        >
-          Enter
-        </Button>
-        </Link>
-        : <Button
+      <Button
+        disabled={ !mail || !password}
         onClick={checkin}
       >
-        Enter
-      </Button>}
+          <Link to={'/main'} >
+          Enter
+          </Link>
+      </Button>
 
     </div>
   )

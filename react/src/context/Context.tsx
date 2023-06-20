@@ -2,8 +2,8 @@ import type { Dispatch, SetStateAction } from 'react'
 import { createContext } from 'react'
 
 interface IAuthContext {
-  auth: string
-  setAuth: Dispatch<SetStateAction<string>>
+  auth: boolean
+  setAuth: Dispatch<SetStateAction<boolean>>
 }
 
-export const ContextAuth = createContext<IAuthContext>({ auth: 'false', setAuth: () => null })
+export const ContextAuth = createContext<IAuthContext>({ auth: false, setAuth: () => null })

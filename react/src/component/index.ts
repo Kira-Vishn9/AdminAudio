@@ -6,5 +6,14 @@ import ListItemButton from '@mui/joy/ListItemButton'
 import Home from '@mui/icons-material/Home'
 import Apps from '@mui/icons-material/Apps'
 import Input from '@mui/joy/Input'
+import Box from '@mui/material/Box'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import CardMedia from '@mui/material/CardMedia'
+import IconButton from '@mui/material/IconButton'
+import Typography from '@mui/material/Typography'
+import SkipPreviousIcon from '@mui/icons-material/SkipPrevious'
+import PlayArrowIcon from '@mui/icons-material/PlayArrow'
+import SkipNextIcon from '@mui/icons-material/SkipNext'
 
-export { Button, List, ListItem, ListItemDecorator, ListItemButton, Home, Apps, Input }
+export { Button, List, ListItem, ListItemDecorator, ListItemButton, Home, Apps, Input, Box, Card, CardContent, CardMedia, IconButton, Typography, SkipPreviousIcon, PlayArrowIcon, SkipNextIcon }
