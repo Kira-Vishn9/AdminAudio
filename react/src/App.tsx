@@ -5,6 +5,9 @@ import Main from './page/Main'
 import './App.css'
 import LogIn from './component/LogIn/LogIn'
 
+// modules
+import { Songs } from './module/song'
+
 import React from 'react'
 
 function App (): JSX.Element {
@@ -17,6 +20,7 @@ function App (): JSX.Element {
         <RootLayout>
         <Routes>
             <Route path="/main" element={<Main />} />
+            <Route path="/songs" element={<Songs />} />
             <Route path="/signin" element={<LogIn /> } />
         </Routes>
         </RootLayout>
