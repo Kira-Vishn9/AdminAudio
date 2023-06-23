@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { getSongs, type ISong } from '@/module/song'
 import { SongTable } from '@/module/song/components/Table.tsx'
 import PaginationRounded from '@/module/song/components/Pagination/Pagination.tsx'
+import { type SongDtoRequest } from '@/module/song/song.dto.ts'
 
 export const Songs = () => {
   const [songs, setSongsResp] = React.useState<ISong[]>([])
@@ -19,7 +20,12 @@ export const Songs = () => {
   // функция для получения данных - отдельно от таблицы
   //
   useEffect(() => {
-    getSongs(page)
+    const params: SongDtoRequest = {
+      params: {
+        page
+      }
+    }
+    getSongs(params)
       .then((res) => { setSongsResp(res.data) })
       .catch((err) => { console.log(err) })
   }, [page])
@@ -27,7 +33,6 @@ export const Songs = () => {
   return (
     <>
       <SongTable songs={songs} />
-
       <PaginationRounded page={page} onChange={handleChange}/>
     </>
   )

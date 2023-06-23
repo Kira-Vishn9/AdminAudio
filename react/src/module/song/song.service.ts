@@ -1,4 +1,4 @@
-import type { SongDtoSingle, type SongDtoRequest } from '@/module/song/song.dto.ts'
+import type { SongDtoRequest, SongDtoSingle } from '@/module/song/song.dto.ts'
 
 const mockSongs: SongDtoSingle[] =
   [
