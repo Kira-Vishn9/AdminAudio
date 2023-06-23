@@ -26,7 +26,7 @@ export const Songs = () => {
       }
     }
     getSongs(params)
-      .then((res) => { setSongsResp(res.data) })
+      .then((res) => { setSongsResp(res.songs) })
       .catch((err) => { console.log(err) })
   }, [page])
 

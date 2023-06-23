@@ -1,4 +1,5 @@
 import type { SongDtoRequest, SongDtoSingle } from '@/module/song/song.dto.ts'
+import { httpClient, type AxiosResponse } from '@/api'
 
 const mockSongs: SongDtoSingle[] =
   [
@@ -391,15 +392,16 @@ const mockSongs: SongDtoSingle[] =
     }
 
   ]
-export async function getSongs (config: SongDtoRequest): Promise<{ status: boolean, data: SongDtoSingle[] }> {
-  return await new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(
-        {
-          status: true,
-          data: mockSongs.slice((config.params.page - 1) * 5, config.params.page * 5)
-        }
-      )
-    }, 2000)
-  })
+export async function getSongs (config: SongDtoRequest): Promise<{ songs: SongDtoSingle[] }> {
+  return await httpClient.get('/song/album?id=645e89d56b074f1141e5d4fd', config)
+
+  // return await new Promise((resolve) => {
+  //   setTimeout(() => {
+  //     resolve(
+  //       {
+  //         songs: mockSongs.slice((config.params.page - 1) * 5, config.params.page * 5)
+  //       }
+  //     )
+  //   }, 0)
+  // })
 }
