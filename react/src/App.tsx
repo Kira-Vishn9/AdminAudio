@@ -12,17 +12,24 @@ import React from 'react'
 
 function App (): JSX.Element {
   // auth - епременная, setAuth - () => void
-  const [auth, setAuth] = React.useState(false)
+  const [auth, setAuth] = React.useState(true)
 
   return (
     <ContextAuth.Provider value={{ auth, setAuth }}>
       <BrowserRouter>
         <RootLayout>
-        <Routes>
-            <Route path="/main" element={<Main />} />
-            <Route path="/songs" element={<Songs />} />
-            <Route path="/signin" element={<LogIn /> } />
-        </Routes>
+          {auth
+            ? (<Routes>
+              <Route path="/main" element={<Main />} />
+              <Route path="/songs" element={<Songs />} />
+              <Route path="/signin" element={<LogIn /> } />
+            </Routes>)
+            : (
+              <Routes>
+                <Route path="*" element={<LogIn /> } />
+              </Routes>)
+          }
+
         </RootLayout>
       </BrowserRouter>
     </ContextAuth.Provider>

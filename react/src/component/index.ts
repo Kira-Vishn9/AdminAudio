@@ -15,5 +15,8 @@ import Typography from '@mui/material/Typography'
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 import SkipNextIcon from '@mui/icons-material/SkipNext'
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
+import Pagination from '@mui/material/Pagination'
+import Stack from '@mui/material/Stack'
 
-export { Button, List, ListItem, ListItemDecorator, ListItemButton, Home, Apps, Input, Box, Card, CardContent, CardMedia, IconButton, Typography, SkipPreviousIcon, PlayArrowIcon, SkipNextIcon }
+export { Stack, Pagination, MoreHorizIcon, Button, List, ListItem, ListItemDecorator, ListItemButton, Home, Apps, Input, Box, Card, CardContent, CardMedia, IconButton, Typography, SkipPreviousIcon, PlayArrowIcon, SkipNextIcon }
