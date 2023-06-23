@@ -3,7 +3,7 @@ import { useTheme } from '@mui/material/styles'
 import { Box, Card, CardContent, CardMedia, MoreHorizIcon, Typography } from '@components/index.ts'
 import { type ISong } from '@/module/song'
 
-export default function SongTable ({ _id, name, code, cover_src, album_code, release_date, genres, albums, artists, label, is_liked }: ISong): JSX.Element {
+export default function Item ({ _id, name, code, cover_src, album_code, release_date, genres, albums, artists, label, is_liked }: ISong): JSX.Element {
   const theme = useTheme()
   return (
     <Card sx={{ display: 'flex', width: '250', marginBottom: 2 }}>

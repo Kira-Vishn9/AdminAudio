@@ -1,4 +1,4 @@
-import type { SongDtoSingle } from '@/module/song/song.dto.ts'
+import type { SongDtoSingle, type SongDtoRequest } from '@/module/song/song.dto.ts'
 
 const mockSongs: SongDtoSingle[] =
   [
@@ -391,13 +391,13 @@ const mockSongs: SongDtoSingle[] =
     }
 
   ]
-export async function getSongs (page: number): Promise<{ status: boolean, data: SongDtoSingle[] }> {
+export async function getSongs (config: SongDtoRequest): Promise<{ status: boolean, data: SongDtoSingle[] }> {
   return await new Promise((resolve) => {
     setTimeout(() => {
       resolve(
         {
           status: true,
-          data: mockSongs.slice((page - 1) * 5, page * 5)
+          data: mockSongs.slice((config.params.page - 1) * 5, config.params.page * 5)
         }
       )
     }, 2000)

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { getSongs, type ISong } from '@/module/song'
-import SongTable from '@/module/song/components/SongTable.tsx'
+import { SongTable } from '@/module/song/components/Table.tsx'
 import PaginationRounded from '@/module/song/components/Pagination/Pagination.tsx'
 
 export const Songs = () => {
@@ -26,7 +26,8 @@ export const Songs = () => {
 
   return (
     <>
-      {songs.map(el => SongTable(el))}
+      <SongTable songs={songs} />
+
       <PaginationRounded page={page} onChange={handleChange}/>
     </>
   )
