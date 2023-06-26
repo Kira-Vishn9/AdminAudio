@@ -4,7 +4,7 @@ import { RootLayout } from './component/Layout/RootLayout'
 import Main from './page/Main'
 import './App.css'
 import LogIn from './component/LogIn/LogIn'
-
+// import Song from '@/module/song/views/Song.tsx'
 // modules
 import { Songs } from './module/song'
 
@@ -23,6 +23,7 @@ function App (): JSX.Element {
               <Route path="/main" element={<Main />} />
               <Route path="/songs" element={<Songs />} />
               <Route path="/signin" element={<LogIn /> } />
+              {/* <Route path="/song" element={<Song /> } /> */}
             </Routes>)
             : (
               <Routes>

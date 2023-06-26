@@ -1,15 +1,16 @@
 export interface ISong {
-  _id: string
-  name: string
+  album_code: string
+  albums: IAlbums[] | string[]
+  artists: IArtists[]
   code: string
   cover_src: string
-  album_code: string
-  release_date: string
-  genres: string[]
-  albums: string[]
-  artists: IArtists[]
-  label: string
+  duration: null | number
+  genres: IGenres[]
   is_liked: boolean
+  label: string
+  name: string
+  release_date: string
+  _id: string
 }
 
 export interface ISongFilled extends ISong {
@@ -34,7 +35,7 @@ interface IArtists {
   album: string[]
 }
 
-interface IAlbums {
+export interface IAlbums {
   _id: string
   name: string
   code: string

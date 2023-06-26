@@ -1,6 +1,7 @@
 import React from 'react'
 import { Apps, Home, List, ListItem, ListItemButton, ListItemDecorator } from '@components/index'
 import './style.css'
+import { Link } from 'react-router-dom'
 
 export function Aside (): JSX.Element {
   return (
@@ -15,7 +16,9 @@ export function Aside (): JSX.Element {
             <ListItemDecorator>
               <Home />
             </ListItemDecorator>
+            <Link to={'/main'}>
              Home
+            </Link>
           </ListItemButton>
         </ListItem>
         <ListItem>
@@ -23,7 +26,9 @@ export function Aside (): JSX.Element {
             <ListItemDecorator>
               <Apps />
             </ListItemDecorator>
+            <Link to={'/songs'}>
             Songs
+            </Link>
           </ListItemButton>
         </ListItem>
         <ListItem>
