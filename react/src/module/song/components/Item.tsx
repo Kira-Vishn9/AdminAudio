@@ -16,14 +16,14 @@ const Item: React.FC<ItemProps> = ({ songs, openSong }) => {
         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
       >
         <TableCell align="right">
-          <img style={{ width: 30 }} src={songs.cover_src} alt={'photo_cover'} />
+          <img style={{ width: 60 }} src={songs.cover_src} alt={'photo_cover'} />
         </TableCell>
-        <TableCell component="th" scope="row">
+        <TableCell component="th" scope="row" sx={{ textAlignLast: 'left' }}>
           {songs.name}
         </TableCell>
         <TableCell align="right">{(new Date(songs.release_date).toLocaleDateString())}</TableCell>
         <TableCell align="right">
-            <Button onClick={ () => { openSong(songs._id) }}>Add</Button>
+            <Button onClick={ () => { openSong(songs._id) }}>Added</Button>
         </TableCell>
       </TableRow>
     </>
