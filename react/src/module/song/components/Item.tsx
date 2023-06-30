@@ -23,7 +23,7 @@ const Item: React.FC<ItemProps> = ({ songs, openSong }) => {
         </TableCell>
         <TableCell align="right">{(new Date(songs.release_date).toLocaleDateString())}</TableCell>
         <TableCell align="right">
-            <Button onClick={ () => { openSong(songs._id) }}>Added</Button>
+            <Button onClick={ () => { openSong(songs._id) }}>Edit</Button>
         </TableCell>
       </TableRow>
     </>

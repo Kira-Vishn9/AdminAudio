@@ -17,5 +17,6 @@ import Paper from '@mui/material/Paper'
 import MoreVertTwoToneIcon from '@mui/icons-material/MoreVertTwoTone'
 import Pagination from '@mui/material/Pagination'
 import Stack from '@mui/material/Stack'
+import AddIcon from '@mui/icons-material/Add'
 
-export { Stack, Pagination, MoreVertTwoToneIcon, Button, List, ListItem, ListItemDecorator, ListItemButton, Home, Apps, Input, Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper }
+export { AddIcon, Stack, Pagination, MoreVertTwoToneIcon, Button, List, ListItem, ListItemDecorator, ListItemButton, Home, Apps, Input, Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper }

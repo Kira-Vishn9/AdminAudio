@@ -9,6 +9,7 @@ import LogIn from './component/LogIn/LogIn'
 import { Songs } from './module/song'
 
 import React from 'react'
+import AddSong from '@/module/song/views/AddSong.tsx'
 
 function App (): JSX.Element {
   // auth - епременная, setAuth - () => void
@@ -23,6 +24,7 @@ function App (): JSX.Element {
               <Route path="/main" element={<Main />} />
               <Route path="/songs" element={<Songs />} />
               <Route path="/signin" element={<LogIn /> } />
+              <Route path="/newsong" element={<AddSong /> } />
               {/* <Route path="/song" element={<Song /> } /> */}
             </Routes>)
             : (

@@ -16,13 +16,12 @@ export const SongTable: React.FC<SongTableProps> = ({ songs, openSong, setInputV
    <div>
      <Input sx={{ marginTop: 2, marginBottom: 2 }} placeholder='Search...' onChange={(e) => { setInputValue(e.target.value) }}></Input>
      <TableContainer component={Paper}>
-       <Table sx={{ minWidth: 1050, textAlignLast: 'center' }} size="small" aria-label="a dense table">
+       <Table sx={{ minWidth: 1090, textAlignLast: 'center' }} size="small" aria-label="a dense table">
          <TableHead>
            <TableRow>
              <TableCell align="right">Cover</TableCell>
              <TableCell sx={{
-               textAlignLast: 'left',
-               paddingLeft: 85
+               textAlignLast: 'left'
              }}>Name Group</TableCell>
              <TableCell align="right">Release Date</TableCell>
              <TableCell align="right">Actions</TableCell>

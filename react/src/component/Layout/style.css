@@ -1,16 +1,14 @@
+* {
+     box-sizing: border-box;
+}
 .wrap-header{
     position: sticky;
     top: 0;
     width: 100%;
     z-index: 5;
 }
-.wrap-aside{
-    position: fixed;
-    left: 0;
-}
 .right-template{
     display: flex;
-    justify-content: center;
 }
 .flex-template{
     display: flex;
@@ -18,12 +16,16 @@
     align-items: center;
     text-align: center;
 }
+.wrap-aside{
+    position: fixed;
+    z-index: 10;
+    width: 250px;
+}
 .main{
-display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 30px;
-    min-width: 75%;
-    box-sizing: border-box;
-    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 100%;
+    padding: 30px 60px 0 290px;
+    overflow-x: hidden;
 }

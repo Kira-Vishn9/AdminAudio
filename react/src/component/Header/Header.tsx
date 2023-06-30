@@ -1,7 +1,7 @@
 import { Button } from '@components/index'
 import { Link, useLocation } from 'react-router-dom'
 import React from 'react'
-// import { ContextAuth } from '../../context/Context'
+import logo from '@/assets/logo.svg'
 import './style.css'
 
 export function Header (): JSX.Element {
@@ -11,7 +11,9 @@ export function Header (): JSX.Element {
   return (
     <div className="header">
       <Link to="/main">
-        <span>logo</span>
+        <span>
+          <img src={logo}/>
+        </span>
       </Link>
       <Link to="/signin">
         <Button color="primary" size="medium" variant="outlined">
