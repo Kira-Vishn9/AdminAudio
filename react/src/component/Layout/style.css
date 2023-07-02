@@ -30,3 +30,11 @@
     overflow-x: hidden;
     justify-content: center;
 }
+.mainFalse{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+}

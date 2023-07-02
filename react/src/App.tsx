@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { ContextAuth } from '@/context/Context.tsx'
 import { RootLayout } from './component/Layout/RootLayout'
 import './App.css'
-import LogIn from './component/LogIn/LogIn'
+import LogIn from './module/login/LogIn.tsx'
 import { Songs } from './module/song'
 
 import React from 'react'

@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom'
 import React from 'react'
 import logo from '@/assets/logo.svg'
 import './style.css'
+import { ContextAuth } from '@/context/Context.tsx'
 
 export function Header (): JSX.Element {
+  const { setAuth } = React.useContext(ContextAuth)
   return (
     <div className="header">
       <Link to="/songs">
@@ -13,7 +15,9 @@ export function Header (): JSX.Element {
         </span>
       </Link>
       <Link to="/signin">
-        <Button color="primary" size="medium" variant="outlined">
+        <Button
+          onClick={() => { setAuth(false) }}
+          color="primary" size="medium" variant="outlined">
           LOGOUT
         </Button>
       </Link>
