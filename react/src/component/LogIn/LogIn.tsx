@@ -43,6 +43,7 @@ function LogIn (): JSX.Element {
       <Input
         style={{ marginTop: '10px', marginBottom: '10px' }}
         placeholder="Enter your password"
+        type={'password'}
         error={!password}
         onChange={validationPassword}
       />
@@ -50,7 +51,7 @@ function LogIn (): JSX.Element {
         disabled={ !mail || !password}
         onClick={checkin}
       >
-          <Link to={'/main'} >
+          <Link to={'/songs'} >
           Enter
           </Link>
       </Button>

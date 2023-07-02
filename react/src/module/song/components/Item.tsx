@@ -2,6 +2,7 @@ import React from 'react'
 import { TableCell, TableRow } from '@components/index.ts'
 import { type ISong } from '@/module/song'
 import { Button } from '@components/index'
+import { Link } from 'react-router-dom'
 
 interface ItemProps {
   songs: ISong
@@ -23,7 +24,9 @@ const Item: React.FC<ItemProps> = ({ songs, openSong }) => {
         </TableCell>
         <TableCell align="right">{(new Date(songs.release_date).toLocaleDateString())}</TableCell>
         <TableCell align="right">
+          <Link to={`/song/${songs._id}`}>
             <Button onClick={ () => { openSong(songs._id) }}>Edit</Button>
+          </Link>
         </TableCell>
       </TableRow>
     </>

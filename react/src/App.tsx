@@ -1,8 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { ContextAuth } from '../src/context/Context'
 import { RootLayout } from './component/Layout/RootLayout'
-import Main from './page/Main'
-import { Test } from './Test.tsx'
 import './App.css'
 import LogIn from './component/LogIn/LogIn'
 // import Song from '@/module/song/views/Song.tsx'
@@ -11,6 +9,7 @@ import { Songs } from './module/song'
 
 import React from 'react'
 import AddSong from '@/module/song/views/AddSong.tsx'
+import Song from '@/module/song/views/Song.tsx'
 
 function App (): JSX.Element {
   // auth - епременная, setAuth - () => void
@@ -22,12 +21,10 @@ function App (): JSX.Element {
         <RootLayout>
           {auth
             ? (<Routes>
-              <Route path="/main" element={<Main />} />
               <Route path="/songs" element={<Songs />} />
-              <Route path="/song/:idsss" element={<Test />} />
+              <Route path="/song/:id" element={<Song />} />
               <Route path="/signin" element={<LogIn /> } />
               <Route path="/newsong" element={<AddSong /> } />
-              {/* <Route path="/song" element={<Song /> } /> */}
             </Routes>)
             : (
               <Routes>

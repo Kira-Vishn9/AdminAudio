@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 const BackButton = (): JSX.Element => {
   const navigate = useNavigate()
   const goBack = (): void => {
-    navigate(0)
+    navigate(-1)
   }
   return (
     <>
