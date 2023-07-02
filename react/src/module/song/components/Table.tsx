@@ -7,16 +7,15 @@ import { Link } from 'react-router-dom'
 
 interface SongTableProps {
   songs: ISong[]
-  openSong: (id: string) => void
   setInputValue: React.Dispatch<React.SetStateAction<string>>
 }
 
-export const SongTable: React.FC<SongTableProps> = ({ songs, openSong, setInputValue }) => {
-  const list: JSX.Element[] = songs.map((song) => <Item key={song._id} songs={song} openSong={openSong} />)
+export const SongTable: React.FC<SongTableProps> = ({ songs, setInputValue }) => {
+  const list: JSX.Element[] = songs.map((song) => <Item key={song._id} songs={song} />)
 
   return (
-   <div style={{ width: 100 + '%' }}>
-     <div style={{ display: 'flex', justifyContent: 'end', width: 100 + '%' }}>
+   <div style={{ width: '100%' }}>
+     <div style={{ display: 'flex', justifyContent: 'end', width: '100%' }}>
        <Link to={'/newsong'} >
         <Button sx={{ border: 1 }} >ADD</Button>
        </Link>

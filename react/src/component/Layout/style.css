@@ -28,4 +28,5 @@
     width: 100%;
     padding: 2% 5% 0 300px;
     overflow-x: hidden;
+    justify-content: center;
 }

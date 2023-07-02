@@ -13,21 +13,24 @@ const AddSong = (): JSX.Element => {
     handleSubmit
   } = useForm()
 
-  const onSubmit = async (data): Promise<void> => {
+  const onSubmit = async (data: any): Promise<void> => {
     console.log(data)
   }
 
   const addCover = (e: React.ChangeEvent<HTMLInputElement>): string => {
-    const reader = new FileReader()
-    reader.readAsDataURL(e.target.files[0])
-    reader.onload = () => {
-      setImgSrc(reader.result as string)
+    if ((e?.target.files != null) && e?.target.files[0]) {
+      const reader = new FileReader()
+      reader.readAsDataURL(e.target.files[0])
+      reader.onload = () => {
+        setImgSrc(reader.result as string)
+      }
+      return reader.result as string
     }
-    return reader.result as string
+    return ''
   }
   return (
     <>
-      <form onSubmit={ handleSubmit(onSubmit)} style={{ width: 100 + '%' }}>
+      <form onSubmit={ handleSubmit(onSubmit)} style={{ width: '100%' }}>
         <BackButton />
         <div style={
           {
@@ -39,20 +42,20 @@ const AddSong = (): JSX.Element => {
           <div>
             <label>
               Name:
-              <Input sx={{ width: 100 + '%' }} {...register('name')}/>
+              <Input sx={{ width: '100%' }} {...register('name')}/>
             </label>
             <label>
               Genres:
-              <Input sx={{ width: 100 + '%' }} {...register('genres')}/>
+              <Input sx={{ width: '100%' }} {...register('genres')}/>
             </label>
             <label>
               Artist:
-              <Input sx={{ width: 100 + '%' }} {...register('artists')} />
+              <Input sx={{ width: '100%' }} {...register('artists')} />
             </label>
             <label>
               Release date:
               <Input
-                sx={{ width: 100 + '%' }}
+                sx={{ width: '100%' }}
                 {...register('release_date')}
               />
             </label>

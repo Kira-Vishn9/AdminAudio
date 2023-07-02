@@ -6,10 +6,9 @@ import { Link } from 'react-router-dom'
 
 interface ItemProps {
   songs: ISong
-  openSong: (id: string) => void
 }
 
-const Item: React.FC<ItemProps> = ({ songs, openSong }) => {
+const Item: React.FC<ItemProps> = ({ songs }) => {
   return (
     <>
       <TableRow
@@ -25,7 +24,7 @@ const Item: React.FC<ItemProps> = ({ songs, openSong }) => {
         <TableCell align="right">{(new Date(songs.release_date).toLocaleDateString())}</TableCell>
         <TableCell align="right">
           <Link to={`/song/${songs._id}`}>
-            <Button onClick={ () => { openSong(songs._id) }}>Edit</Button>
+            <Button>Edit</Button>
           </Link>
         </TableCell>
       </TableRow>

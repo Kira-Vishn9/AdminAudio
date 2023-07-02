@@ -5,7 +5,7 @@ import './style.css'
 import { Link } from 'react-router-dom'
 
 function LogIn (): JSX.Element {
-  const { auth, setAuth } = React.useContext(ContextAuth)
+  const { setAuth } = React.useContext(ContextAuth)
   const [mail, setMail] = React.useState(false)
   const [password, setPassword] = React.useState(false)
 

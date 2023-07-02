@@ -1,10 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { ContextAuth } from '../src/context/Context'
+import { ContextAuth } from '@/context/Context.tsx'
 import { RootLayout } from './component/Layout/RootLayout'
 import './App.css'
 import LogIn from './component/LogIn/LogIn'
-// import Song from '@/module/song/views/Song.tsx'
-// modules
 import { Songs } from './module/song'
 
 import React from 'react'
@@ -12,7 +10,6 @@ import AddSong from '@/module/song/views/AddSong.tsx'
 import Song from '@/module/song/views/Song.tsx'
 
 function App (): JSX.Element {
-  // auth - епременная, setAuth - () => void
   const [auth, setAuth] = React.useState(true)
 
   return (
