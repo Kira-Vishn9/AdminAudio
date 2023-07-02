@@ -410,3 +410,11 @@ export async function getSongs (config: SongDtoRequest): Promise<{ songs: SongDt
 export async function getSongInfo (id: string): Promise<{ song: SongDtoResp }> {
   return await httpClient.get('/song/info', { params: { id } })
 }
+
+// TODO:
+// 1. хранить токен
+// 2. в каждый запрос добаывлять заголовок 'verify-token-g-music' = 'token'
+
+export async function login (): Promise<void> {
+  await new Promise((resolve) => setTimeout(() => { resolve({ status: true }) }, 1000))
+}
