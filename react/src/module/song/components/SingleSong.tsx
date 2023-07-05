@@ -34,7 +34,7 @@ const SingleSong = ({ songInfo }: { songInfo: ISongFilled }): JSX.Element => {
   const getArtistsName = (): string => {
     return songInfo.artists.map(el => el.name).join(',')
   }
-  const getRealeseDate = (): string => {
+  const getReleaseDate = (): string => {
     return new Date(songInfo.release_date).toLocaleDateString()
   }
   const getDuration = (): number => {
@@ -73,7 +73,7 @@ const SingleSong = ({ songInfo }: { songInfo: ISongFilled }): JSX.Element => {
               <Input
                 sx={{ width: '100%' }}
                 {...register('release_date')}
-                defaultValue={getRealeseDate()}
+                defaultValue={getReleaseDate()}
               />
             </label>
           </div>

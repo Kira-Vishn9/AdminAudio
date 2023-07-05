@@ -1,14 +1,19 @@
 import React from 'react'
 import { TableCell, TableRow } from '@components/index.ts'
-import { type ISong } from '@/module/song'
+import { type ISong } from '@/module/song/song.model.ts'
 import { Button } from '@components/index'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 interface ItemProps {
   songs: ISong
 }
 
 const Item: React.FC<ItemProps> = ({ songs }) => {
+  const navigate = useNavigate()
+
+  const handleClick = (): void => {
+    navigate(`/song/${songs._id}`)
+  }
   return (
     <>
       <TableRow
@@ -23,9 +28,7 @@ const Item: React.FC<ItemProps> = ({ songs }) => {
         </TableCell>
         <TableCell align="right">{(new Date(songs.release_date).toLocaleDateString())}</TableCell>
         <TableCell align="right">
-          <Link to={`/song/${songs._id}`}>
-            <Button>Edit</Button>
-          </Link>
+            <Button onClick={handleClick}>Edit</Button>
         </TableCell>
       </TableRow>
     </>

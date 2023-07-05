@@ -1,9 +1,9 @@
 import React from 'react'
-import { type ISong } from '@/module/song'
+import { type ISong } from '@/module/song/song.model.ts'
 import Item from './Item.tsx'
 import { Input, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@components/index.ts'
 import { Button } from '@mui/material'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 interface SongTableProps {
   songs: ISong[]
@@ -12,13 +12,14 @@ interface SongTableProps {
 
 export const SongTable: React.FC<SongTableProps> = ({ songs, setInputValue }) => {
   const list: JSX.Element[] = songs.map((song) => <Item key={song._id} songs={song} />)
-
+  const navigate = useNavigate()
+  const handleClick = (): void => {
+    navigate('/newsong')
+  }
   return (
    <div style={{ width: '100%' }}>
      <div style={{ display: 'flex', justifyContent: 'end', width: '100%' }}>
-       <Link to={'/newsong'} >
-        <Button sx={{ border: 1 }} >ADD</Button>
-       </Link>
+        <Button onClick={handleClick} sx={{ border: 1 }} >ADD</Button>
      </div>
      <Input sx={{ marginTop: 2, marginBottom: 2 }} placeholder='Search...' onChange={(e) => { setInputValue(e.target.value) }}></Input>
      <TableContainer component={Paper}>

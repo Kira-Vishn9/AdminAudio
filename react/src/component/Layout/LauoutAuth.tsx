@@ -2,9 +2,9 @@ import React from 'react'
 import { Header } from '../Header/Header'
 import { Aside } from '../Aside/Aside'
 import './style.css'
-import { type Ichild } from '../../type/allType.ts'
+import { type IChild } from '../../type/allType.ts'
 
-export function LayoutAuth ({ children }: Ichild): JSX.Element {
+export function LayoutAuth ({ children }: IChild): JSX.Element {
   return (
     <div className="layout">
       <div className="wrap-header">

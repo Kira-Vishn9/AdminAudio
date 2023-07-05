@@ -7,6 +7,9 @@ import { ContextAuth } from '@/context/Context.tsx'
 
 export function Header (): JSX.Element {
   const { setAuth } = React.useContext(ContextAuth)
+  const handleClick = (): void => {
+    setAuth(false)
+  }
   return (
     <div className="header">
       <Link to="/songs">
@@ -14,13 +17,11 @@ export function Header (): JSX.Element {
           <img src={logo}/>
         </span>
       </Link>
-      <Link to="/signin">
         <Button
-          onClick={() => { setAuth(false) }}
+          onClick={handleClick}
           color="primary" size="medium" variant="outlined">
           LOGOUT
         </Button>
-      </Link>
     </div>
   )
 }

@@ -9,10 +9,7 @@ import { useForm } from 'react-hook-form'
 
 function LogIn (): JSX.Element {
   const { setAuth } = React.useContext(ContextAuth)
-  const [mail, setMail] = React.useState(false)
-  const [password, setPassword] = React.useState(false)
   const [token, setToken] = React.useState(false)
-  const [istoken, setIsToken] = React.useState(false)
   const navigate = useNavigate()
 
   const {
@@ -21,7 +18,7 @@ function LogIn (): JSX.Element {
     formState: { errors }
   } = useForm()
 
-  const onSubmit = (d) => {
+  const onSubmit = (d): void => {
     console.log(JSON.stringify((d)))
   }
 
@@ -35,7 +32,7 @@ function LogIn (): JSX.Element {
       })
   }, [])
 
-  const submit = () => {
+  const submit = (): void => {
     if (token) {
       navigate('songs')
       setAuth(true)
@@ -90,27 +87,3 @@ function LogIn (): JSX.Element {
 }
 
 export default LogIn
-
-// const checkin = (): void => {
-//   mail && password && token ? setAuth(true) : alert('try again')
-// }
-//
-// const validationMail = (e: React.ChangeEvent<HTMLInputElement>): undefined | boolean => {
-//   const check = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-//   const target = e.target.value
-//   if (target === null) return
-//   setMail(check.test(target))
-//   return check.test(target)
-// }
-// const validationPassword = (e: React.ChangeEvent<HTMLInputElement>): undefined | boolean => {
-//   const check = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/
-//   const target = e.target.value
-//   if (target === null) return
-//   setPassword(check.test(target))
-//   return check.test(target)
-// }
-// const validationToken = (e: React.ChangeEvent<HTMLInputElement>): boolean | undefined => {
-//   const target = e.target.value
-//   if (target === null) return undefined
-//   setIsToken(target.length >= 6)
-// }

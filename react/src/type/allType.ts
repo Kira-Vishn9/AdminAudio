@@ -1,4 +1,4 @@
-export interface Ichild {
+export interface IChild {
   children: JSX.Element | JSX.Element[]
 }
 

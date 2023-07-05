@@ -1,9 +1,9 @@
 import React from 'react'
 import './style.css'
-import { type Ichild } from '../../type/allType.ts'
+import { type IChild } from '../../type/allType.ts'
 import { ContextAuth } from '@/context/Context.tsx'
 
-export function LayoutDefault ({ children }: Ichild): JSX.Element {
+export function LayoutDefault ({ children }: IChild): JSX.Element {
   const { auth } = React.useContext(ContextAuth)
   return (
     <div className="layout">
