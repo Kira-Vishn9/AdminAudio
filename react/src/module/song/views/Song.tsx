@@ -7,11 +7,9 @@ import { type ISongFilled } from '@/module/song/song.model.ts'
 const Song = (): JSX.Element => {
   const { id } = useParams()
   const [selectedSong, setSelectedSong] = React.useState<ISongFilled | undefined>()
-  const [isLoad, setIsLoad] = React.useState(true)
+  const [isLoading, setIsLoadinging] = React.useState(true)
 
   React.useEffect(() => {
-    setIsLoad(false)
-
     getSongInfo(id ?? '') // Provide a default value for id
       .then((response) => {
         setSelectedSong(response.song)
@@ -20,27 +18,26 @@ const Song = (): JSX.Element => {
         console.log(error)
       })
       .finally(() => {
-        setIsLoad(true)
+        setIsLoadinging(true)
       })
   }, [id])
 
   return (
     <>
-      {isLoad
+      {isLoading
         ? (
+            'Loading...'
+          )
+        : (
             (selectedSong != null)
               ? (
-          <SingleSong songInfo={selectedSong} />
+          <SingleSong songInfo={selectedSong}/>
                 )
               : (
           <div>No song found.</div>
                 )
-          )
-        : (
-            'loading'
           )}
     </>
   )
 }
-
 export default Song
