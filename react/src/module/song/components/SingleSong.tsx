@@ -2,8 +2,7 @@ import React from 'react'
 import BackButton from '@/module/song/components/BackButton/BackButton.tsx'
 import { RoundedDiv } from '@/module/song/components/RoundedDiv/RoundedDiv.tsx'
 import { Button, Input } from '@/component'
-import { type IAlbums } from '@/module/song'
-import { type ISongFilled } from '@/module/song/song.model.ts'
+import { type IAlbums, type ISongFilled } from '@/module/song/song.model.ts'
 import { useForm } from 'react-hook-form'
 
 const SingleSong = ({ songInfo }: { songInfo: ISongFilled }): JSX.Element => {
@@ -29,8 +28,23 @@ const SingleSong = ({ songInfo }: { songInfo: ISongFilled }): JSX.Element => {
     console.log(data)
   }
 
-  return (
+  const getGengerName = (): string => {
+    return songInfo.genres.map(el => el.name).join(',')
+  }
+  const getArtistsName = (): string => {
+    return songInfo.artists.map(el => el.name).join(',')
+  }
+  const getRealeseDate = (): string => {
+    return new Date(songInfo.release_date).toLocaleDateString()
+  }
+  const getDuration = (): number => {
+    return songInfo.duration !== null ? songInfo.duration : 0
+  }
+  const getAlbumsName = (): string => {
+    return songInfo.albums.map((el: any): IAlbums => el.name).join(' ')
+  }
 
+  return (
     <>
       <form onSubmit={ handleSubmit(onSubmit)} style={{ width: '100%' }}>
         <BackButton />
@@ -48,18 +62,18 @@ const SingleSong = ({ songInfo }: { songInfo: ISongFilled }): JSX.Element => {
             </label>
             <label>
               Genres:
-              <Input sx={{ width: '100%' }} {...register('genres')} disabled={true} defaultValue={songInfo.genres.map(el => el.name).join(',')} />
+              <Input sx={{ width: '100%' }} {...register('genres')} disabled={true} defaultValue={getGengerName()} />
             </label>
             <label>
               Artist:
-              <Input sx={{ width: '100%' }} {...register('artists')} disabled={true} defaultValue={songInfo.artists.map(el => el.name).join(',')} />
+              <Input sx={{ width: '100%' }} {...register('artists')} disabled={true} defaultValue={getArtistsName()} />
             </label>
             <label>
               Release date:
               <Input
                 sx={{ width: '100%' }}
                 {...register('release_date')}
-                defaultValue={new Date(songInfo.release_date).toLocaleDateString()}
+                defaultValue={getRealeseDate()}
               />
             </label>
           </div>
@@ -70,7 +84,7 @@ const SingleSong = ({ songInfo }: { songInfo: ISongFilled }): JSX.Element => {
           <Input
             disabled={true}
             {...register('duration')}
-            defaultValue={songInfo.duration !== null ? songInfo.duration : ''}
+            defaultValue={getDuration()}
           />
         </label>
         <label>
@@ -87,7 +101,7 @@ const SingleSong = ({ songInfo }: { songInfo: ISongFilled }): JSX.Element => {
         </label>
         <label>
           Albums:
-          <Input disabled={true} {...register('albums')} defaultValue={songInfo.albums.map((el: any): IAlbums => el.name).join(' ')} />
+          <Input disabled={true} {...register('albums')} defaultValue={getAlbumsName()} />
         </label>
         <div style={{ textAlign: 'center' }}>
           <Button sx={{ margin: 2, border: 1 }} type="submit" >
