@@ -5,7 +5,7 @@ import { RoundedDiv } from '@/module/song/components/RoundedDiv/RoundedDiv.tsx'
 import { useForm } from 'react-hook-form'
 import { Input } from '@/component/index'
 
-const AddSong = (): JSX.Element => {
+const CreateSong = (): JSX.Element => {
   const [imgSrc, setImgSrc] = React.useState('')
 
   const {
@@ -94,4 +94,4 @@ const AddSong = (): JSX.Element => {
     </>
   )
 }
-export default AddSong
+export default CreateSong
