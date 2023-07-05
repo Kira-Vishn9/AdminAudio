@@ -1,3 +1,4 @@
+import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { ContextAuth } from '@/context/Context.tsx'
 import { RootLayout } from './component/Layout/RootLayout'
@@ -5,9 +6,7 @@ import './App.css'
 import LogIn from './module/login/LogIn.tsx'
 import { Songs } from './module/song'
 
-import React from 'react'
-import AddSong from '@/module/song/views/AddSong.tsx'
-import Song from '@/module/song/views/Song.tsx'
+import { CreateSong, Song } from '@/module/song/index.ts'
 
 const NotFound = () => <div>404</div>
 
@@ -23,7 +22,7 @@ function App (): JSX.Element {
               <Route path="/songs" element={<Songs />} />
               <Route path="/song/:id" element={<Song />} />
               {/* <Route path="/signin" element={<LogIn /> } /> */}
-              <Route path="/newsong" element={<AddSong /> } />
+              <Route path="/newsong" element={<CreateSong /> } />
               <Route path="*" element={<NotFound /> } />
             </Routes>)
             : (
