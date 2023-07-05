@@ -1,5 +1,5 @@
 import React from 'react'
-import { Pagination, Stack } from '@components/index.ts'
+import { Pagination, Stack } from '@/component'
 
 interface PaginationControlledProps {
   page: number
