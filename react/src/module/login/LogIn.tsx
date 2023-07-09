@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Input } from '@/components/index.ts'
-import { ContextAuth } from '@/context/Context.tsx'
+import { ContextAuth } from '@/context/index.ts'
 import styles from './style.module.css'
 import { useNavigate } from 'react-router-dom'
 import logo from '@/assets/logo.svg'

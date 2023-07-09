@@ -1,6 +1,6 @@
 import React from 'react'
 import type { IComponentChild } from '@/type/allType.ts'
-import { ContextAuth } from '@/context/Context.tsx'
+import { ContextAuth } from '@/context/index.ts'
 import { LayoutAuth } from '@/components/Layout/LayoutAuth.tsx'
 import { LayoutDefault } from '@/components/Layout/LayoutDefault.tsx'
 
