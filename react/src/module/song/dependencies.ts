@@ -1,3 +1,3 @@
-import PaginationControlled from '@/component/Pagination/Pagination.tsx'
+import PaginationControlled from '@/components/Pagination/Pagination.tsx'
 
 export { PaginationControlled }

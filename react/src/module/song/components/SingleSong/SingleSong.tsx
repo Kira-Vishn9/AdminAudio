@@ -1,9 +1,10 @@
 import React from 'react'
-import BackButton from '@/module/song/components/BackButton/BackButton.tsx'
+import BackButton from '@/components/BackButton/BackButton.tsx'
 import { RoundedDiv } from '@/module/song/components/RoundedDiv/RoundedDiv.tsx'
-import { Button, Input } from '@/component'
+import { Button, Input } from '@/components/index.ts'
 import { type IAlbums, type ISongFilled } from '@/module/song/song.model.ts'
 import { useForm } from 'react-hook-form'
+import styles from './style.module.css'
 
 const SingleSong = ({ songInfo }: { songInfo: ISongFilled }): JSX.Element => {
   const {
@@ -48,12 +49,7 @@ const SingleSong = ({ songInfo }: { songInfo: ISongFilled }): JSX.Element => {
     <>
       <form onSubmit={ handleSubmit(onSubmit)} style={{ width: '100%' }}>
         <BackButton />
-        <div style={
-          {
-            display: 'grid',
-            gridTemplateColumns: '1fr 4fr'
-          }
-        }>
+        <div className={styles.grid}>
           <RoundedDiv songInfo={songInfo} addCover={addCover} imgSrc={imgSrc} />
           <div>
             <label>
@@ -103,7 +99,7 @@ const SingleSong = ({ songInfo }: { songInfo: ISongFilled }): JSX.Element => {
           Albums:
           <Input disabled={true} {...register('albums')} defaultValue={getAlbumsName()} />
         </label>
-        <div style={{ textAlign: 'center' }}>
+        <div className={styles.wrapButton} >
           <Button sx={{ margin: 2, border: 1 }} type="submit" >
             Submit
           </Button>

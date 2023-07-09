@@ -1,9 +1,10 @@
 import React from 'react'
-import { Button } from '@/component/index.ts'
-import BackButton from '@/module/song/components/BackButton/BackButton.tsx'
+import { Button } from '@/components/index.ts'
+import BackButton from '@/components/BackButton/BackButton.tsx'
 import { RoundedDiv } from '@/module/song/components/RoundedDiv/RoundedDiv.tsx'
 import { useForm } from 'react-hook-form'
-import { Input } from '@/component/index'
+import { Input } from '@/components/index'
+import styles from './style.module.css'
 
 const CreateSong = (): JSX.Element => {
   const [imgSrc, setImgSrc] = React.useState('')
@@ -32,12 +33,7 @@ const CreateSong = (): JSX.Element => {
     <>
       <form onSubmit={ handleSubmit(onSubmit)} style={{ width: '100%' }}>
         <BackButton />
-        <div style={
-          {
-            display: 'grid',
-            gridTemplateColumns: '1fr 4fr'
-          }
-        }>
+        <div className={styles.grid}>
           <RoundedDiv addCover={addCover} imgSrc={imgSrc} />
           <div>
             <label>
@@ -85,7 +81,7 @@ const CreateSong = (): JSX.Element => {
           Albums:
           <Input {...register('albums')}/>
         </label>
-        <div style={{ textAlign: 'center' }}>
+        <div className={styles.wrapButton}>
           <Button sx={{ margin: 2, border: 1 }} type="submit" >
             Submit
           </Button>

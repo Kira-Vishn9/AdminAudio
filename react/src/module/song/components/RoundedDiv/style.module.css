@@ -1,0 +1,27 @@
+.circle{
+    margin: 0 30px;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff5a00, #ffcc00);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    justify-self: center;
+}
+.circleInit{
+    width: 250px;
+    height: 250px;
+    align-self: center;
+    border-radius: 50%;
+}
+.label{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    cursor: pointer;
+}
+.input{
+    display: none;
+}

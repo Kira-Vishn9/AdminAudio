@@ -1,8 +1,8 @@
-import { Button } from '@components/index'
+import { Button } from '@/components/index.ts'
 import { Link } from 'react-router-dom'
 import React from 'react'
 import logo from '@/assets/logo.svg'
-import './style.css'
+import styles from './style.module.css'
 import { ContextAuth } from '@/context/Context.tsx'
 
 export function Header (): JSX.Element {
@@ -11,10 +11,10 @@ export function Header (): JSX.Element {
     setAuth(false)
   }
   return (
-    <div className="header">
+    <div className={styles.header}>
       <Link to="/songs">
         <span>
-          <img src={logo}/>
+          <img src={logo} alt={'logo'}/>
         </span>
       </Link>
         <Button

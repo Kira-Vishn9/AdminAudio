@@ -6,6 +6,6 @@ export interface SongDtoRequest {
   params: {
     page?: number
     count?: number
-    inputValue?: string
+
   }
 }

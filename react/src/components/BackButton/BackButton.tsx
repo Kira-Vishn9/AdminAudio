@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from '@/component/index.ts'
+import { Button } from '@/components/index.ts'
 import { useNavigate } from 'react-router-dom'
 
 const BackButton = (): JSX.Element => {

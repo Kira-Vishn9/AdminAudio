@@ -1,32 +1,34 @@
 * {
+    margin: 0;
      box-sizing: border-box;
 }
-.wrap-header{
-    position: sticky;
+.header{
+    position: fixed;
     top: 0;
     width: 100%;
     z-index: 5;
 }
-.right-template{
+.default{
     display: flex;
 }
-.flex-template{
+.flex{
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
-.wrap-aside{
+.aside{
     position: fixed;
     z-index: 10;
     width: 250px;
+    margin-top: 67px;
 }
 .main{
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
     width: 100%;
-    padding: 2% 5% 0 300px;
+    padding: 6% 5% 0 300px;
     overflow-x: hidden;
     justify-content: center;
 }
