@@ -25,9 +25,15 @@
       "@/*": [
         "./src/*"
       ],
-      "@components/*": [
-        "./src/component/*"
-      ],
+      "@/components/*": ["components/*"],
+      "@api/*": ["api/*"],
+      "@assets/*": ["assets/*"],
+      "@context/*": ["context/*"],
+      "@module/*": ["module/*"],
+      "@page/*": ["page/*"],
+      "@router/*": ["router/*"],
+      "@type/*": ["type/*"]
+
     }
   },
   "include": ["src"],
