@@ -1,3 +1,2 @@
-import { ContextAuth } from '@/context/Context.tsx'
-
-export { ContextAuth }
+export * from './Context.tsx'
+export * from './Modal.ts'

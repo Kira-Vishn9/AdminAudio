@@ -1,11 +1,10 @@
-import React, { type ChangeEvent } from 'react'
+import React from 'react'
 import {
   Box,
   Button,
   Chip,
   ChipDelete,
   Input,
-  Modal,
   Paper,
   Table,
   TableBody,
@@ -17,14 +16,11 @@ import styles from './style.module.css'
 import { PaginationControlled } from '@/module/song/dependencies.ts'
 
 interface ModalWindowProps {
-  handleChange: (event: ChangeEvent<unknown>, value: number) => void
-  page: number
-  arrayArtists: Array<{ _id: string, name: string }>
-  data: Array<{ name: string }>
-  handleClose: () => void
-  open: boolean
+  payload?: {
+    arrayArtists: Array<{ _id: string, name: string }>
+  }
 }
-export default function ModalWindow ({ handleChange, page, arrayArtists, data, handleClose, open }: ModalWindowProps): JSX.Element {
+export default function ModalWindow (props: ModalWindowProps): JSX.Element {
   const [selected, setSelected] = React.useState<string[]>([])
 
   const handleDelete = (itemName: string): void => {
@@ -36,18 +32,11 @@ export default function ModalWindow ({ handleChange, page, arrayArtists, data, h
   }
 
   React.useEffect((): void => {
-    const names = data.map((item) => item.name)
+    const names = [].map((item: any) => item.name)
     setSelected(names)
   }, [])
 
   return (
-    <div>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
         <Box
           sx={{
             minWidth: 900,
@@ -76,9 +65,10 @@ export default function ModalWindow ({ handleChange, page, arrayArtists, data, h
             <TableContainer component={Paper}>
               <div className={styles.title}>Artists</div>
               <div className={styles.titleRow}>Name</div>
+
               <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableBody>
-                  {arrayArtists.map((item) => (
+                  {props.payload?.arrayArtists?.map((item: any) => (
                     <TableRow
                       key={item._id}
                       sx={{
@@ -98,7 +88,7 @@ export default function ModalWindow ({ handleChange, page, arrayArtists, data, h
             </TableContainer>
           </Box>
           <div className={styles.gridContainer}>
-            <PaginationControlled page={page} onChange={handleChange}/>
+            <PaginationControlled page={1} />
             <Button
               onClick={() => {
                 setSelected([])
@@ -115,7 +105,5 @@ export default function ModalWindow ({ handleChange, page, arrayArtists, data, h
               }}>Add</Button>
           </div>
         </Box>
-      </Modal>
-    </div>
   )
 }

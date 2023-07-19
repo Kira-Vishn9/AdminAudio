@@ -5,25 +5,26 @@ import { Button, Input } from '@/components'
 import { type IAlbums, type ISongFilled } from '@/module/song/song.model.ts'
 import { useForm } from 'react-hook-form'
 import styles from './style.module.css'
-import ModalWindow from '@/module/song/components/ModalWindow/ModalWindow.tsx'
-import { getArtists } from '@/module/song/song.service.ts'
-import { type SongDtoRequest } from '@/module/song/song.dto.ts'
+import { ModalContext } from '@/context'
+// import { getArtists } from '@/module/song/song.service.ts'
+// import { type SongDtoRequest } from '@/module/song/song.dto.ts'
 
 const SingleSong = ({ songInfo }: { songInfo: ISongFilled }): JSX.Element => {
   const {
     register,
     handleSubmit
   } = useForm()
+  const { show } = React.useContext(ModalContext)
   const [imgSrc, setImgSrc] = React.useState(songInfo.cover_src)
-  const [open, setOpen] = React.useState(false)
   const [arrayArtists, setArrayArtists] = React.useState({})
   const [page, setPage] = React.useState(1)
-  const handleOpen = (): void => { setOpen(true) }
-  const handleClose = (): void => { setOpen(false) }
-  const handleChange = (event: React.ChangeEvent<unknown>, value: number): void => {
-    setPage(value)
-    console.log(event)
+  const handleOpen = (): void => {
+    show('edit', { arrayArtists: songInfo.artists })
   }
+  // const handleChange = (event: React.ChangeEvent<unknown>, value: number): void => {
+  //   setPage(value)
+  //   console.log(event)
+  // }
   const addCover = (e: React.ChangeEvent<HTMLInputElement>): string => {
     if ((e.target.files != null) && e.target.files[0]) {
       const reader = new FileReader()
@@ -35,20 +36,19 @@ const SingleSong = ({ songInfo }: { songInfo: ISongFilled }): JSX.Element => {
     }
     return ''
   }
+  // //
+  // React.useEffect(() => {
+  //   const params: SongDtoRequest = {
+  //     params: {
+  //       page,
+  //       count: 25
+  //     }
+  //   }
+  //   getArtists(params)
+  //     .then((data) => { setArrayArtists(data) })
+  //     .catch((error) => { console.error(error) })
+  // }, [page])
 
-  React.useEffect(() => {
-    const params: SongDtoRequest = {
-      params: {
-        page,
-        count: 25
-      }
-    }
-    getArtists(params)
-      .then((data) => { setArrayArtists(data) })
-      .catch((error) => { console.error(error) })
-  }, [page])
-
-  console.log(arrayArtists)
   const onSubmit = async (data: any): Promise<void> => {
     console.log(data)
   }
@@ -70,9 +70,6 @@ const SingleSong = ({ songInfo }: { songInfo: ISongFilled }): JSX.Element => {
 
   return (
     <>
-      {open
-        ? <ModalWindow handleChange={handleChange} page={page} arrayArtists={arrayArtists} data={songInfo.artists} handleClose={handleClose} open={open} />
-        : ''}
       <form onSubmit={ handleSubmit(onSubmit)} style={{ width: '100%' }}>
         <BackButton />
         <div className={styles.grid}>
