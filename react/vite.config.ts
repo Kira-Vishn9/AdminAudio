@@ -13,8 +13,6 @@ export default defineConfig({
       '@assets': `${resolve(__dirname, 'src/assets')}/`,
       '@context': `${resolve(__dirname, 'src/context')}/`,
       '@module': `${resolve(__dirname, 'src/module')}/`,
-      '@page': `${resolve(__dirname, 'src/page')}/`,
-      '@router': `${resolve(__dirname, 'src/router')}/`,
       '@type': `${resolve(__dirname, 'src/type')}/`,
     }
   }

@@ -1,17 +1,7 @@
 import React from 'react'
 import { type ISong } from '@/module/song/song.model.ts'
 import Item from '../Item/Item.tsx'
-import {
-  Button,
-  Input,
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow
-} from '@/components/index.ts'
+import { Button, Input, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@/components'
 import { useNavigate } from 'react-router-dom'
 import styles from './style.module.css'
 
@@ -31,7 +21,7 @@ export const SongTable: React.FC<SongTableProps> = ({ songs, setInputValue }) =>
      <div className={styles.wrapButton}>
         <Button onClick={handleClick} sx={{ border: 1 }} >ADD</Button>
      </div>
-     <Input sx={{ marginTop: 2, marginBottom: 2 }} placeholder='Search...' onChange={(e) => { setInputValue(e.target.value) }}></Input>
+     <Input sx={{ marginTop: 2, marginBottom: 2 }} placeholder='Search...' onChange={(e) => { setInputValue(e.target.value) }} />
      <TableContainer component={Paper}>
        <Table sx={{ minWidth: 1090, textAlignLast: 'center' }} size="small" aria-label="a dense table">
          <TableHead>

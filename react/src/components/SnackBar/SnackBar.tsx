@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { type AlertProps, MuiAlert, Stack } from '@/components/index.ts'
+import { type AlertProps, MuiAlert, Stack } from '@/components'
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert (
   props,

@@ -10,7 +10,7 @@ import { CreateSong, Song } from '@/module/song/index.ts'
 const NotFound = (): JSX.Element => <div>404</div>
 
 function App (): JSX.Element {
-  const [auth, setAuth] = React.useState(false)
+  const [auth, setAuth] = React.useState(true)
 
   return (
     <ContextAuth.Provider value={{ auth, setAuth }}>

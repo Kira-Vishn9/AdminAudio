@@ -1,4 +1,4 @@
-import type { SongDtoRequest, SongDtoResp, SongDtoSingle } from '@/module/song/song.dto.ts'
+import type { type ArtistsDtoResp, SongDtoRequest, SongDtoResp, SongDtoSingle } from '@/module/song/song.dto.ts'
 import { httpClient } from '@/api'
 
 // const mockSongs: SongDtoSingle[] =
@@ -409,4 +409,8 @@ export async function getSongs (config: SongDtoRequest): Promise<{ songs: SongDt
 
 export async function getSongInfo (id: string): Promise<{ song: SongDtoResp }> {
   return await httpClient.get('/song/info', { params: { id } })
+}
+
+export async function getArtists (config: SongDtoRequest): Promise<{ artists: ArtistsDtoResp }> {
+  return await httpClient.get('/artist/all', config)
 }

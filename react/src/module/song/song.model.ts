@@ -25,7 +25,7 @@ interface IGenres {
   code: string
 }
 
-interface IArtists {
+export interface IArtists {
   _id: string
   name: string
   is_verified: boolean
@@ -33,6 +33,7 @@ interface IArtists {
   genre: string[]
   song: string[]
   album: string[]
+  cover_src: string
 }
 
 export interface IAlbums {

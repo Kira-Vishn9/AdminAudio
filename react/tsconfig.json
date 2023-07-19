@@ -25,14 +25,12 @@
       "@/*": [
         "./src/*"
       ],
-      "@/components/*": ["components/*"],
-      "@api/*": ["api/*"],
-      "@assets/*": ["assets/*"],
-      "@context/*": ["context/*"],
-      "@module/*": ["module/*"],
-      "@page/*": ["page/*"],
-      "@router/*": ["router/*"],
-      "@type/*": ["type/*"]
+      "@/components/*": ["./components/*"],
+      "@api/*": ["./api/*"],
+      "@assets/*": ["./assets/*"],
+      "@context/*": ["./context/*"],
+      "@module/*": ["./module/*"],
+      "@type/*": ["./type/*"]
 
     }
   },

@@ -1,5 +1,4 @@
 .circle{
-    margin: 0 30px;
     width: 250px;
     height: 250px;
     border-radius: 50%;
@@ -17,6 +16,7 @@
     border-radius: 50%;
 }
 .label{
+    margin: 20px;
     display: flex;
     justify-content: center;
     align-self: center;
