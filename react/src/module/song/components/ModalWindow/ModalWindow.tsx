@@ -20,10 +20,11 @@ interface ModalWindowProps {
   handleChange: (event: React.ChangeEvent<unknown>, value: number) => void
   page: number
   payload?: {
-    arrayArtists: Array<{ _id: string, name: string }>
+    payloadArray: Array<{ _id: string, name: string }>
   }
 }
 export default function ModalWindow (props: ModalWindowProps): JSX.Element {
+  console.log(props.array)
   const [selected, setSelected] = React.useState<string[]>([])
   const handleDelete = (itemName: string): void => {
     setSelected((prevItems) => prevItems.filter((item) => item !== itemName))
@@ -34,7 +35,7 @@ export default function ModalWindow (props: ModalWindowProps): JSX.Element {
   }
 
   React.useEffect((): void => {
-    const names = props.payload?.arrayArtists.map((item: { _id: string, name: string }) => item.name)
+    const names = props.payload?.payloadArray.map((item: { _id: string, name: string }) => item.name)
     setSelected(names)
   }, [])
   return (

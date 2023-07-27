@@ -67,6 +67,6 @@ export async function getGenres (config: SongDtoRequest): Promise<{ genres: Genr
       resolve({
         genres: mockGenres.slice((config?.params?.page - 1) * 5, config.params.page * 5)
       })
-    }, 1000)
+    }, 0)
   })
 }

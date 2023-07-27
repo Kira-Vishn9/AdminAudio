@@ -6,7 +6,7 @@ import { getArtists } from '@module/song/song.service.ts'
 
 interface ModalWindowProps {
   payload?: {
-    arrayArtists: Array<{ _id: string, name: string }>
+    payloadArray: Array<{ _id: string, name: string }>
   }
 }
 

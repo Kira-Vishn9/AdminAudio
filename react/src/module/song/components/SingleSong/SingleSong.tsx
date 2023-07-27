@@ -14,8 +14,8 @@ const SingleSong = ({ songInfo }: { songInfo: ISongFilled }): JSX.Element => {
   } = useForm()
   const { show } = React.useContext(ModalContext)
   const [imgSrc, setImgSrc] = React.useState(songInfo.cover_src)
-  const handleOpen = (variable: string): void => {
-    show(variable, { arrayArtists: songInfo.artists })
+  const handleOpen = (variable: string, payloadInfo: any): void => {
+    show(variable, { payloadArray: payloadInfo })
   }
   const addCover = (e: React.ChangeEvent<HTMLInputElement>): string => {
     if ((e.target.files != null) && e.target.files[0]) {
@@ -62,14 +62,14 @@ const SingleSong = ({ songInfo }: { songInfo: ISongFilled }): JSX.Element => {
             <label>Genres:</label>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'end' }}>
               <Input sx={{ width: '100%' }} {...register('genres')} disabled={true} defaultValue={getGengerName()} />
-              <Button sx={{ border: 1, padding: 0, position: 'absolute' }} onClick={() => { handleOpen('genres') }}>ТЫК</Button>
+              <Button sx={{ border: 1, padding: 0, position: 'absolute' }} onClick={() => { handleOpen('genres', songInfo.genres) }}>ТЫК</Button>
               </div>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <label style={{ alignSelf: 'flex-start' }}>Artist:</label>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'end' }}>
                 <Input sx={{ width: '100%' }} {...register('artists')} disabled={true} defaultValue={getArtistsName()} />
-                <Button sx={{ border: 1, padding: 0, position: 'absolute' }} onClick={() => { handleOpen('artists') }}>ТЫК</Button>
+                <Button sx={{ border: 1, padding: 0, position: 'absolute' }} onClick={() => { handleOpen('artists', songInfo.artists) }}>ТЫК</Button>
               </div>
             </div>
             <label>
