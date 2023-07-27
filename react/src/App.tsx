@@ -1,13 +1,13 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { ContextAuth, ModalContext } from '@/context'
+import { ModalContext } from '@context/modalContext.ts'
+import { ContextAuth } from '@context/authContext.ts'
 import { RootLayout } from '@/components/Layout/RootLayout'
-import LogIn from '@/module/login/LogIn.tsx'
-import Songs from '@/module/song/views/Songs.tsx'
+import LogIn from '@module/login/LogIn.tsx'
+import { Songs } from '@module/song'
 
-import { Combiner } from '@/components'
-
-import { CreateSong, Song } from '@/module/song/index.ts'
+import { Combiner } from '@/components/Combiner/Combiner.tsx'
+import { CreateSong, Song } from '@module/song/index.ts'
 
 const NotFound = (): JSX.Element => <div>404</div>
 
@@ -16,7 +16,7 @@ function App (): JSX.Element {
   const [modal, setModal] = React.useState<string>('')
   const [payload, setPayload] = React.useState<any>(null)
 
-  const onShow = (name: string, payload: any) => {
+  const onShow = (name: string, payload?: any): void => {
     setModal(name)
     setPayload(payload)
   }

@@ -2,7 +2,7 @@ import type { Dispatch, SetStateAction } from 'react'
 import { createContext } from 'react'
 
 // TODO: delete | string
-type TModalNames = 'edit' | '' | string
+type TModalNames = 'artists' | 'genres' | string
 interface IModalContext {
   modal: TModalNames
   payload: any

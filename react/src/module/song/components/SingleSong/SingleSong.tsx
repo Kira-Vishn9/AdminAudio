@@ -1,13 +1,11 @@
 import React from 'react'
 import BackButton from '@/components/BackButton/BackButton.tsx'
-import { RoundedDiv } from '@/module/song/components/RoundedDiv/RoundedDiv.tsx'
-import { Button, Input } from '@/components'
-import { type IAlbums, type ISongFilled } from '@/module/song/song.model.ts'
+import RoundedDiv from '@module/song/components/RoundedDiv/RoundedDiv.tsx'
+import { Button, Input } from '@/components/index.ts'
+import { type IAlbums, type ISongFilled } from '@module/song/song.model.ts'
 import { useForm } from 'react-hook-form'
 import styles from './style.module.css'
-import { ModalContext } from '@/context'
-// import { getArtists } from '@/module/song/song.service.ts'
-// import { type SongDtoRequest } from '@/module/song/song.dto.ts'
+import { ModalContext } from '@context/modalContext.ts'
 
 const SingleSong = ({ songInfo }: { songInfo: ISongFilled }): JSX.Element => {
   const {
@@ -16,15 +14,9 @@ const SingleSong = ({ songInfo }: { songInfo: ISongFilled }): JSX.Element => {
   } = useForm()
   const { show } = React.useContext(ModalContext)
   const [imgSrc, setImgSrc] = React.useState(songInfo.cover_src)
-  const [arrayArtists, setArrayArtists] = React.useState({})
-  const [page, setPage] = React.useState(1)
-  const handleOpen = (): void => {
-    show('edit', { arrayArtists: songInfo.artists })
+  const handleOpen = (variable: string): void => {
+    show(variable, { arrayArtists: songInfo.artists })
   }
-  // const handleChange = (event: React.ChangeEvent<unknown>, value: number): void => {
-  //   setPage(value)
-  //   console.log(event)
-  // }
   const addCover = (e: React.ChangeEvent<HTMLInputElement>): string => {
     if ((e.target.files != null) && e.target.files[0]) {
       const reader = new FileReader()
@@ -36,19 +28,6 @@ const SingleSong = ({ songInfo }: { songInfo: ISongFilled }): JSX.Element => {
     }
     return ''
   }
-  // //
-  // React.useEffect(() => {
-  //   const params: SongDtoRequest = {
-  //     params: {
-  //       page,
-  //       count: 25
-  //     }
-  //   }
-  //   getArtists(params)
-  //     .then((data) => { setArrayArtists(data) })
-  //     .catch((error) => { console.error(error) })
-  // }, [page])
-
   const onSubmit = async (data: any): Promise<void> => {
     console.log(data)
   }
@@ -83,14 +62,14 @@ const SingleSong = ({ songInfo }: { songInfo: ISongFilled }): JSX.Element => {
             <label>Genres:</label>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'end' }}>
               <Input sx={{ width: '100%' }} {...register('genres')} disabled={true} defaultValue={getGengerName()} />
-              <Button sx={{ border: 1, padding: 0, position: 'absolute' }} onClick={handleOpen}>ТЫК</Button>
+              <Button sx={{ border: 1, padding: 0, position: 'absolute' }} onClick={() => { handleOpen('genres') }}>ТЫК</Button>
               </div>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <label style={{ alignSelf: 'flex-start' }}>Artist:</label>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'end' }}>
                 <Input sx={{ width: '100%' }} {...register('artists')} disabled={true} defaultValue={getArtistsName()} />
-                <Button sx={{ border: 1, padding: 0, position: 'absolute' }} onClick={handleOpen}>ТЫК</Button>
+                <Button sx={{ border: 1, padding: 0, position: 'absolute' }} onClick={() => { handleOpen('artists') }}>ТЫК</Button>
               </div>
             </div>
             <label>

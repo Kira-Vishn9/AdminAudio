@@ -1,8 +1,8 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import SingleSong from '@/module/song/components/SingleSong/SingleSong.tsx'
-import { getSongInfo } from '@/module/song/song.service.ts'
-import { type ISongFilled } from '@/module/song/song.model.ts'
+import SingleSong from '@module/song/components/SingleSong/SingleSong.tsx'
+import { getSongInfo } from '@module/song/song.service.ts'
+import { type ISongFilled } from '@module/song/song.model.ts'
 import Snackbars from '@/components/SnackBar/SnackBar.tsx'
 
 const Song = (): JSX.Element => {

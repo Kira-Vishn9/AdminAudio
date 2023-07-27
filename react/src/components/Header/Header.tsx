@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import React from 'react'
 import logo from '@/assets/logo.svg'
 import styles from './style.module.css'
-import { ContextAuth } from '@/context/index.ts'
+import { ContextAuth } from '@context/authContext.ts'
 
 export function Header (): JSX.Element {
   const { setAuth } = React.useContext(ContextAuth)

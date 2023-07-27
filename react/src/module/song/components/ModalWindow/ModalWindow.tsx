@@ -11,18 +11,20 @@ import {
   TableCell,
   TableContainer,
   TableRow
-} from '@/components'
+} from '@/components/index.ts'
+import PaginationControlled from '@/components/Pagination/Pagination.tsx'
 import styles from './style.module.css'
-import { PaginationControlled } from '@/module/song/dependencies.ts'
 
 interface ModalWindowProps {
+  array: any
+  handleChange: (event: React.ChangeEvent<unknown>, value: number) => void
+  page: number
   payload?: {
     arrayArtists: Array<{ _id: string, name: string }>
   }
 }
 export default function ModalWindow (props: ModalWindowProps): JSX.Element {
   const [selected, setSelected] = React.useState<string[]>([])
-
   const handleDelete = (itemName: string): void => {
     setSelected((prevItems) => prevItems.filter((item) => item !== itemName))
   }
@@ -32,10 +34,9 @@ export default function ModalWindow (props: ModalWindowProps): JSX.Element {
   }
 
   React.useEffect((): void => {
-    const names = [].map((item: any) => item.name)
+    const names = props.payload?.arrayArtists.map((item: { _id: string, name: string }) => item.name)
     setSelected(names)
   }, [])
-
   return (
         <Box
           sx={{
@@ -68,7 +69,7 @@ export default function ModalWindow (props: ModalWindowProps): JSX.Element {
 
               <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableBody>
-                  {props.payload?.arrayArtists?.map((item: any) => (
+                  {props.array.map((item: any) => (
                     <TableRow
                       key={item._id}
                       sx={{
@@ -88,7 +89,7 @@ export default function ModalWindow (props: ModalWindowProps): JSX.Element {
             </TableContainer>
           </Box>
           <div className={styles.gridContainer}>
-            <PaginationControlled page={1} />
+            <PaginationControlled page={props.page} onChange={props.handleChange}/>
             <Button
               onClick={() => {
                 setSelected([])

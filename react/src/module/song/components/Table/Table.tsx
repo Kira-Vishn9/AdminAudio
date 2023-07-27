@@ -1,7 +1,17 @@
 import React from 'react'
-import { type ISong } from '@/module/song/song.model.ts'
+import { type ISong } from '@module/song/song.model.ts'
 import Item from '../Item/Item.tsx'
-import { Button, Input, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@/components'
+import {
+  Button,
+  Input,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow
+} from '@/components/index.ts'
 import { useNavigate } from 'react-router-dom'
 import styles from './style.module.css'
 

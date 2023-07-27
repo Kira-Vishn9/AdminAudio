@@ -2,7 +2,7 @@ import React from 'react'
 import { Header } from '../Header/Header'
 import { Aside } from '../Aside/Aside'
 import styles from './style.module.css'
-import { type IComponentChild } from '@/type/allType.ts'
+import { type IComponentChild } from '@type/allType.ts'
 
 export function LayoutDefault ({ children }: IComponentChild): JSX.Element {
   return (

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from '@/components/index.ts'
 import BackButton from '@/components/BackButton/BackButton.tsx'
-import { RoundedDiv } from '@/module/song/components/RoundedDiv/RoundedDiv.tsx'
+import RoundedDiv from '@module/song/components/RoundedDiv/RoundedDiv.tsx'
 import { useForm } from 'react-hook-form'
 import { Input } from '@/components/index'
 import styles from './style.module.css'

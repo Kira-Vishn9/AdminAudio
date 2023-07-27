@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, TableCell, TableRow } from '@/components/index.ts'
-import { type ISong } from '@/module/song/song.model.ts'
+import { type ISong } from '@module/song/song.model.ts'
 import { useNavigate } from 'react-router-dom'
 import styles from './style.module.css'
 

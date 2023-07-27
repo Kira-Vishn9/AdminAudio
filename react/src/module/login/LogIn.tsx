@@ -1,10 +1,10 @@
 import React from 'react'
 import { Button, Input } from '@/components/index.ts'
-import { ContextAuth } from '@/context/index.ts'
+import { ContextAuth } from '@context/authContext.ts'
 import styles from './style.module.css'
 import { useNavigate } from 'react-router-dom'
 import logo from '@/assets/logo.svg'
-import { login } from '@/module/login/login.service.ts'
+import { login } from '@module/login/login.service.ts'
 import { useForm } from 'react-hook-form'
 import Snackbars from '@/components/SnackBar/SnackBar.tsx'
 

@@ -1,2 +1,2 @@
-export * from './Context.tsx'
-export * from './Modal.ts'
+export * from './authContext.ts'
+export * from './modalContext.ts'

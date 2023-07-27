@@ -1,5 +1,5 @@
 import React from 'react'
-import { type ISongFilled } from '@/module/song/song.model.ts'
+import { type ISongFilled } from '@module/song/song.model.ts'
 import styles from './style.module.css'
 
 interface IRoundedDivProps {
@@ -7,7 +7,7 @@ interface IRoundedDivProps {
   addCover: (e: React.ChangeEvent<HTMLInputElement>) => void
   imgSrc: string
 }
-export const RoundedDiv = ({ songInfo, addCover, imgSrc }: IRoundedDivProps): JSX.Element => {
+const RoundedDiv = ({ songInfo, addCover, imgSrc }: IRoundedDivProps): JSX.Element => {
   const getName = (): string => {
     return songInfo !== undefined ? songInfo.name.split(' ').slice(1, 2).join(' ') : 'init'
   }
@@ -33,3 +33,5 @@ export const RoundedDiv = ({ songInfo, addCover, imgSrc }: IRoundedDivProps): JS
     </>
   )
 }
+
+export default RoundedDiv
