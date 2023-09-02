@@ -1,0 +1,8 @@
+.wrap{
+    width: 100%;
+}
+.wrapButton{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+}
